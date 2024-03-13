@@ -19,6 +19,7 @@ class AppTheme {
 
   //light theme
   static final lightTheme = ThemeData(
+    appBarTheme: AppBarTheme(backgroundColor: primaryColor),
     colorScheme: const ColorScheme.light(primary: Color(0xFFFF8086)),
     useMaterial3: true,
     //fontFamily: "MadimiOne",

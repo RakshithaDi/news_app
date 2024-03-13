@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:news_app/features/home/screens/home_screen.dart';
+import 'package:news_app/features/home/screens/dashboard/home_screen.dart';
+import 'package:news_app/features/home/screens/news%20details%20view/news_details_view.dart';
+import 'package:news_app/features/home/screens/profile/my_profile_view.dart';
 import 'package:news_app/features/home/widgets/nav_bar_item.dart';
 
 import '../../../common/utils/assets_paths.dart';
@@ -19,9 +21,11 @@ class _NavigationScreenState extends State<NavigationScreen> {
     if (selectedNavIndex == 0) {
       return HomeScreen();
     } else if (selectedNavIndex == 1) {
-      return Text('4');
+      return const Center(
+        child: Text("Favourite Screen"),
+      );
     } else {
-      return Text("444");
+      return MyProfile();
     }
   }
 
@@ -116,7 +120,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
                                 selectedNavIndex = index;
                               });
                             },
-                            title: "Favourtie",
+                            title: "Profile",
                           ),
                         ],
                       ),

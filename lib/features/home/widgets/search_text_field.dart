@@ -3,11 +3,31 @@ import 'package:news_app/common/utils/assets_paths.dart';
 import 'package:news_app/common/utils/const_keys.dart';
 
 class SearchTextField extends StatelessWidget {
-  const SearchTextField({super.key});
+  void Function() onSuffixTap;
+  void Function(String)? onChanged;
+  String suffixIconPath;
+  TextEditingController controller;
+  void Function()? onTap;
+  SearchTextField(
+      {super.key,
+      required this.controller,
+      required this.onSuffixTap,
+      this.onChanged,
+      this.onTap,
+      required this.suffixIconPath});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
+      onTap: () {
+        if (onTap != null) {
+          onTap!();
+        }
+      },
+      onChanged: (value) {
+        onChanged != null ? onChanged!(value) : null;
+      },
       style: const TextStyle(
           fontFamily: Font_Family_Nunito,
           fontSize: 13,
@@ -16,10 +36,20 @@ class SearchTextField extends StatelessWidget {
       textAlignVertical: TextAlignVertical.top,
       decoration: InputDecoration(
         hintText: "Dogecoin to the Moon...",
-        suffix: Image.asset(
-          TEXT_FIELD_SEARCH_IC,
-          width: 20,
-          height: 20,
+        suffixIconConstraints: BoxConstraints(maxHeight: 40, maxWidth: 40),
+        suffixIcon: GestureDetector(
+          onTap: () {
+            onSuffixTap();
+          },
+          child: Row(
+            children: [
+              Image.asset(
+                suffixIconPath,
+                width: 15,
+                height: 15,
+              ),
+            ],
+          ),
         ),
         hintStyle: const TextStyle(
             fontFamily: Font_Family_Nunito,

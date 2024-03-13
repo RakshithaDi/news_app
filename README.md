@@ -16,11 +16,10 @@ Usage
 3.Run the following command in the terminal to install dependencies:
 flutter pub get
 
-Usage
-1.After installing dependencies, run the application on an emulator or a real device.
+4.After installing dependencies, run the application on an emulator or a real device.
 
-2.Once the app is running, navigate to the signup page.
+5.Once the app is running, navigate to the signup page.
 
-3.Provide necessary details to create a new user account.
+6.Provide necessary details to create a new user account.
 
-4.After creating an account, sign in with the credentials of the newly created account.
+7.After creating an account, sign in with the credentials of the newly created account.
